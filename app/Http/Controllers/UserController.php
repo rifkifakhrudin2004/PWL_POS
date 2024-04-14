@@ -17,15 +17,38 @@ class UserController extends Controller
     {
         return view('user_tambah');
     }
+
+    //fillable
     public function tambah_simpan(Request $request){
         UserModel::create([
-            'username' => $request->username,
-            'nama' => $request->nama,
-            'password' => Hash::make($request->password),
-            'level_id' =>$request->level_id
+            'username' => 'manager-dua',
+            'nama' => 'manager 2',
+            'password' => Hash::make('12345'),
+            'level_id' => 2
         ]);
         return redirect('/user');
     }
+    //not found exceptions
+    public function index2()
+    {
+        $user = UserModel::findOrFail((1));
+        return view('user',['data' => $user]);
+    }
+    //Retreiving or Creating Models
+    public function index3()
+    {
+        $user = UserModel::firstOrCreate(
+            [
+            'username' => 'manager',
+            'nama' => 'manager'
+            ],
+        );
+        return view('user', ['data'=>$user]);
+    }
+
+
+
+
     public function ubah($id)
     {
         $user = UserModel::find($id);
