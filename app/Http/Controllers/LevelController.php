@@ -18,9 +18,12 @@ class LevelController extends Controller
     {
         return view('level.create');
     }
-
     public function store(Request $request)
     {
+        $request->validate([
+            'level_kode' => 'bail|required|string|max:255',
+            'level_nama' => 'bail|required|string|max:255',
+    ]);
         LevelModel::create([
             'level_kode' => $request->level_kode,
             'level_nama' => $request->level_nama,

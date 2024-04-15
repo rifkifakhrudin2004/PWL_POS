@@ -16,14 +16,19 @@ class KategoriController extends Controller
     {
         return view('kategori.create');
     }
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
+        $request->validate([
+        'kodeKategori' => 'bail|required|string|max:255',
+        'namaKategori' => 'bail|required|string|max:255',
+         ]);
         KategoriModel::create([
-            'kategori_kode' => $request->kodeKategori,
-            'kategori_nama' => $request->namaKategori,
+        'kategori_kode' => $request->kodeKategori,
+        'kategori_nama' => $request->namaKategori,
         ]);
         return redirect('/kategori');
     }
+
     public function update($id){
         $kategori = KategoriModel::find($id);
         return view('kategori.update',['data' => $kategori]);
