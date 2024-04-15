@@ -73,13 +73,19 @@ class POSController extends Controller
             'username' => 'required',
             'nama' => 'required',
             'password' => 'required',
-            '' => 'required',
+            'level_id' => 'required',
             ]);
             //fungsi eloquent untuk mengupdate data inputan kita
-m_user::find($id)->update($request->all());
-//jika data berhasil diupdate, akan kembali ke halaman utama
-return redirect()->route('m_user.index')
-->with('success', 'Data Berhasil Diupdate');
+            // m_user::find($id)->update($request->all());
+            //jika data berhasil diupdate, akan kembali ke halaman utama
+            m_user::create([
+                'username' => $request->username,
+                'nama' => $request->nama,
+                'password' => Hash::make($request->password),
+                'level_id' => $request->level_id, 
+            ]);
+            return redirect()->route('m_user.index')
+            ->with('success', 'User Berhasil Diupdate');
     }
 
     /**

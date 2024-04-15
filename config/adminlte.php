@@ -344,6 +344,11 @@ return [
             'url'  =>'/user'
         ],
         [
+            'text' =>'m_user',
+            'icon' =>'fas fa-fw fa-solid fa-user',
+            'url'  =>'/m_user'
+        ],
+        [
             'text' =>'Level',
             'icon' =>'fas fa-fw fa-solid fa-user',
             'url'  =>'/level'
