@@ -335,8 +335,18 @@ return [
         ],
         [
             'text' =>'kategori',
-            'icon' =>'fas',
+            'icon' =>'fas fa-fw fa-solid fa-user',
             'url'  =>'kategori'
+        ],
+        [
+            'text' =>'User',
+            'icon' =>'fas fa-fw fa-solid fa-user',
+            'url'  =>'/user'
+        ],
+        [
+            'text' =>'Level',
+            'icon' =>'fas fa-fw fa-solid fa-user',
+            'url'  =>'/level'
         ],
         [
             'text' => 'multilevel',
