@@ -43,8 +43,9 @@ return [
         'api' => [
             'driver' => 'jwt',
             'provider' => 'users',
+        ], // Menutup kurung kurawal yang hilang di sini
     ],
-],
+    
 
     /*
     |--------------------------------------------------------------------------
