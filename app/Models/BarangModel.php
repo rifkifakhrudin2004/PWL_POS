@@ -9,7 +9,7 @@ class BarangModel extends Model
 {
     protected $table = 'm_barang';
     protected $primaryKey = 'barang_id';
-    protected $fillable = ['kategori_id', 'barang_nama', 'harga_beli', 'harga_jual']; // Menggunakan array untuk $fillable
+    protected $fillable = ['kategori_id','barang_kode','barang_nama', 'harga_beli', 'harga_jual']; // Menggunakan array untuk $fillable
 
     // Mengubah `update_at` menjadi `updated_at` untuk penulisan yang benar
     protected $dates = ['created_at', 'updated_at'];

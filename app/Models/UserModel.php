@@ -12,13 +12,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class UserModel extends Authenticatable implements JWTSubject
 {
     public function getJWTIdentifier(){
-        return 'user_id';
+        return $this->getKey();
     }
     public function getJWTCustomClaims(){
         return [];
     }
 
     protected $table ='m_user';
-    protected $primarykey ='user_id';
+    protected $primaryKey ='user_id';
     protected $fillable =['level_id','username','nama','password'];
 }
