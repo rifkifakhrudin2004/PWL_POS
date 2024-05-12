@@ -113,6 +113,7 @@ Route::post('proses_login', [AuthController::class, 'proses_login'])->name('pros
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('proses_register', [AuthController::class, 'proses_register'])->name('proses_register');
 
+
 // kita atur juga untuk middleware menggunakan group pada routing
 // didalamnya terdapat group untuk mengecek kondisi login
 // jika user yang login merupakan admin maka akan diarahkan ke AdminController
@@ -124,5 +125,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::group(['middleware' => ['cek_login:2']], function () {
         Route::resource('manager', ManagerController::class);
+
     });
 });
