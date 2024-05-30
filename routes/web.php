@@ -12,6 +12,7 @@ use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ManagerController;
+use App\Http\Controllers\FileUploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -127,4 +128,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('manager', ManagerController::class);
 
     });
+    Route::get('/file-upload', [FileUploadController::class,'fileUpload']);
+    Route::post('/file-upload', [FileUploadController::class,'prosesfileUpload']);
+
+    Route::get('/file-upload-name', [FileUploadController::class,'fileUploadName']);
+    Route::post('/file-upload-name', [FileUploadController::class,'prosesfileUploadName']);
 });
